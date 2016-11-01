@@ -40,43 +40,50 @@
   "cheap"
   "today"
   "tomorrow"
+  "find"
   ])
 
 (defn parse-noun
+  "Decide if it is a noun"
   [noun]
 
-  ; (filter
-  ;   (fn [x]
-  ;     (some #{noun} nouns)) nouns)
-  (list
-    (some #{noun} nouns))
-  noun)
+  (filter
+    (fn [x]
+      (= x noun))
+    nouns))
+
 
 (defn parse-verb
+  "Decide if it is a verb"
   [verb]
 
-  ; (filter
-  ;   (fn [x]
-  ;     (some #{verb} verbs)) verbs)
-  (list
-    (some #{verb} verbs))
-  verb)
+  (filter
+    (fn [x]
+      (= x verb))
+    verbs))
 
-(defn parse-word
-  [words]
+(defn words
+  [x]
 
-  (println words)
-  )
+  (string/split x #" "))
 
 ; A sentence is always consists of a noun phrase, followed by a noun.
 (defn sentence
+  "Parse a sentence into lists of verbs and nouns"
   [x]
 
-  (concat
-    (doseq
-      [i (string/split x #" ")] parse-noun)
-    (doseq
-      [i (string/split x #" ")] parse-verb))
+  ; (printf "Sentence: %s" x)
+
+  (list
+    (map
+      (fn [word]
+        (parse-noun word))
+      (words x))
+    (map
+      (fn [word]
+        (parse-verb word))
+      (words x))
+    )
 
   )
 
@@ -85,5 +92,9 @@
   "Parse sentences in a certain topic"
   []
 
-  (doseq [i messages] (sentence i))
+  ; (doseq [i messages] (sentence i))
+  (println (for
+    [i messages]
+    (sentence i))
+    )
 )
