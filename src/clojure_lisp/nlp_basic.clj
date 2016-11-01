@@ -1,4 +1,5 @@
 (ns clojure-lisp.nlp_basic)
+(require '[clojure.string :as string])
 
 (def messages
   [
@@ -71,9 +72,11 @@
 (defn sentence
   [x]
 
-  (list
-    (parse-noun "ticket")
-    (parse-verb "bar"))
+  (concat
+    (doseq
+      [i (string/split x #" ")] parse-noun)
+    (doseq
+      [i (string/split x #" ")] parse-verb))
 
   )
 
