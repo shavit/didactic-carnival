@@ -93,8 +93,9 @@
   []
 
   ; (doseq [i messages] (sentence i))
-  (println (for
-    [i messages]
-    (sentence i))
-    )
+  ; (println
+    (for
+      [i messages]
+      (sentence i))
+    ; )
 )
