@@ -99,3 +99,25 @@
       (sentence i))
     ; )
 )
+
+; Generate random sentences from the messages/
+(defn generate-something
+  []
+
+  (println
+    (let
+      [maps
+        (for
+          [messages messages] (fn [x]
+            (for
+              [p
+                (partition 2 1 (remove
+                  #(= "" %) x))
+              ]
+              {(first p) [(second p)]})
+            ))
+      ]
+      maps)
+  )
+
+  [])
