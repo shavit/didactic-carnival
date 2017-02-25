@@ -121,3 +121,22 @@
   )
 
   [])
+
+; (defn generate-something
+;    []
+
+; (let
+;   [maps
+;     (for
+;       [line
+;         (string/split messages #"\s+")
+;         m (let
+;             [l (str line ".")
+;             words
+;             (cons :start (string/split l #"\s+"))]
+;           (for
+;             [p (partition 2 1 (remove #(= "" %) words))]
+;             {(first p) [(second p)]}))]
+;     m)
+;   ]
+;
