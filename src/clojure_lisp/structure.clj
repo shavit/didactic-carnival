@@ -1,4 +1,5 @@
 (ns clojure-lisp.structure)
+(require '[clojure.string :as string])
 
 (defn tak
   "Tak https://en.wikipedia.org/wiki/Tak_(function)"
@@ -12,3 +13,16 @@
     z)
 
   )
+
+(defn compressing-byte-array
+  "Compressing byte array"
+  [x]
+
+  (string/split
+    x #" "))
+
+
+    (defn words
+      [x]
+
+      (string/split x #" "))
