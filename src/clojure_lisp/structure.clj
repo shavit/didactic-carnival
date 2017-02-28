@@ -1,5 +1,6 @@
 (ns clojure-lisp.structure)
 (require '[clojure.string :as string])
+(require '[clojure.set :as cset])
 
 (defn tak
   "Tak https://en.wikipedia.org/wiki/Tak_(function)"
