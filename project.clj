@@ -5,4 +5,4 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]]
   ; Set the entry point
-  :main clojure-lisp.core/start)
+  :main clojure-lisp.core)
