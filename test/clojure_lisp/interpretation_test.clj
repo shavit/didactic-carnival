@@ -6,10 +6,3 @@
   (testing "Experssion without quotes is an expression"
     (not
       (= "1" 1))))
-
-(deftest alternatives-test
-  (testing "Experssion without quotes is an expression"
-    (is
-      (=
-         (clojure-lisp.core/foo "Say") "Say"))
-    ))
