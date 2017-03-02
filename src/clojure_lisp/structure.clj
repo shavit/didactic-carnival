@@ -88,6 +88,20 @@
 
   (set (map (subvec v 0 %))
       (range 1 (inc (count v))))
+  )
+
+; Generate all of the subvectors
+(defn all-subvec
+  [v]
+
+  (loop [result #{} remaining v]
+      (if (seq remaining)
+        (recur (into result
+                  (all-subvecs-from-beginning remaining))
+                (into []
+                  (rest remaining))
+          )
+        result))
 
   )
 
