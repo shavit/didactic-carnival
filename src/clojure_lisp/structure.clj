@@ -102,6 +102,20 @@
                   (rest remaining))
           )
         result))
+  )
+
+; Grab the logest match in left array with the beginning of right array
+(defn longest-match-w-beginning
+  [left-array right-array]
+
+  (let [all-left-chunks (all-subvec left-array)
+          all-right-chunks-from-beginning
+          (all-subvecs-from-beginning right-array)
+          all-matches
+          (cset/intersection all-right-chunks-from-beginning all-left-chunks)]
+            (->> all-matches
+              (sort-by count >)
+              first))
 
   )
 
