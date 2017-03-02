@@ -80,6 +80,14 @@
                     (current 1))
                   the-rest)))
                     result)))
+  )
+
+; Generate a set of sub-vectors
+(defn all-subvecs-from-beginning
+  [v]
+
+  (set (map (subvec v 0 %))
+      (range 1 (inc (count v))))
 
   )
 
