@@ -30,8 +30,40 @@
       pattern (subvec the-vector start end)]
       (into [] (take length (cycle pattern)))
     )
+
   )
 
+; Based on the LZ77 compression method
+;
+; Walk a sequence and recognize a pattern in the past elements that will occur
+;   in the upcoming elements, replacing those with a couple of values:
+;     * Distance - How many elements should go backwards, in order to locate
+;         a pattern.
+;     * Length - How longis the recurring pattern.
+;
+;   Compression
+;   -----------
+;
+;   Interation
+;   1. Process an element at the current position. Window of the size is
+;     represented by n.
+;   2. Begin with the first element of the input.
+;   3. Move to the next element.
+;   4. Find the longest pattern in the window.
+;   5. Distance is the location where the sequence was found, length is the
+;     length of pattern. Proceed with these actions:
+;       * Replace the match in lookahead b distance and length.
+;       * Move forward using the length elements and resume algorithm
+;           execution at step 4.
+;   6. Otherwise resume at step 3.
+;
+;   Decompression
+;   -------------
+;   1. Iterate through the compressed sequence.
+;   2. Go back to the distance, if the distance and length were found,
+;     replace them with the length elements.
+;   3. Otherwise lay out the elements.
+;
 (defn compressing-byte-array
   "Compressing byte array"
   [x]
