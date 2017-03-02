@@ -12,6 +12,16 @@
 ;          (clojure-lisp.structure/tak 1 2 3) nil))
 ;     ))
 
+(deftest test-un-LZ77
+  (testing "un-LZ77"
+
+    (not
+      (=
+        (clojure-lisp.structure/un-LZ77 "hello")
+        nil))
+
+    ))
+
 (deftest test-compressing-byte-array
   (testing "Compressing byte array"
 
