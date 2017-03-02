@@ -15,6 +15,27 @@
 
   )
 
+; Take the source array as a vector of the elements distance
+;   and length, and generates a repetition of a sub-vector of
+;   the last distance characters from the source array until
+;   the length is reached
+; (defn expand
+;   [the-vector
+;     distance
+;     length]
+;
+;   (let [end (count the-vector)
+;     start (- end
+;             distance)
+;     pattern (subvec the-vector
+;                     start
+;                     end)
+;     (into [] (take length
+;       (cycle pattern)))
+;   ])
+;
+;   )
+
 (defn compressing-byte-array
   "Compressing byte array"
   [x]
