@@ -3,4 +3,6 @@
   :url "https://github.com/shavit/didactic-carnival"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.8.0"]])
+  :dependencies [[org.clojure/clojure "1.8.0"]]
+  ; Set the entry point
+  :main clojure-lisp.core/foo)
