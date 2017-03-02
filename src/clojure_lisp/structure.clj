@@ -64,6 +64,25 @@
 ;     replace them with the length elements.
 ;   3. Otherwise lay out the elements.
 ;
+(defn un-LZ77
+  [bytes]
+
+  (loop [result [] remaining bytes]
+    (if (seq remaining)
+      (let [current (first remaining)
+            the-rest (rest remaining)]
+            (if-not (vector? Current)
+              (recur (conj result current)
+                the-rest)
+                recur (into result (
+                  (expand result
+                    (current 0)
+                    (current 1))
+                  the-rest)))
+                    result)))
+
+  )
+
 (defn compressing-byte-array
   "Compressing byte array"
   [x]
