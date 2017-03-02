@@ -119,6 +119,25 @@
 
   )
 
+; Where the match is located inside the window
+(defn pos-of-subvec
+  [sv v]
+
+  {:pre [(<= (count sv)
+            (count v))]}
+  (loop
+    [cursor 0]
+    (if (or (empty? v)
+            (empty? sv)
+            (= cursor (count v)))
+        nil))
+    (if (= (subvec v cursor)
+        (+ (count sv) cursor))
+        sv)
+    (recur (inc cursor))
+
+  )
+
 (defn compressing-byte-array
   "Compressing byte array"
   [x]
